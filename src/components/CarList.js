@@ -68,9 +68,11 @@ export default function CarList() {
     return  (
         <div>
             <div className="ag-theme-material" style={{height: '600px', width: '100vw' }}>
-                <Addcar saveCar={saveCar} />
-                <Editcar editCar={editCar} cars={cars} getRow={gridRef.current} />
-                <Button style={{margin: 10}} variant="outlined" onClick={deleteCar}>Delete Car</Button>
+                <div style={{display: "flex"}}>
+                    <Addcar saveCar={saveCar} />
+                    <Editcar editCar={editCar} cars={cars} getRow={gridRef.current} />
+                    <Button style={{margin: 10}} variant="outlined" onClick={deleteCar}>Delete Car</Button>
+                </div>
                 <AgGridReact
                     ref={gridRef}
                     onGridkey={ params => gridRef.current = params.api }

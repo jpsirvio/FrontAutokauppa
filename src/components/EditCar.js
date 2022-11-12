@@ -13,16 +13,21 @@ export default function Editcar(props) {
     });
 
     const handleClickOpen = () => {
-      const row = props.getRow.api.getSelectedNodes()[0].id;
-      setCar({
+      if(props.getRow.api.getSelectedNodes().length > 0) {
+        const row = props.getRow.api.getSelectedNodes()[0].id;
+        setCar({
           brand: props.cars[row].brand, 
           model: props.cars[row].model,
           color: props.cars[row].color,
           fuel: props.cars[row].fuel,
           year: props.cars[row].year,
           price: props.cars[row].price,
-      });
-      setOpen(true);
+        });
+        setOpen(true);
+      } else {
+        alert('Select a row before editing');
+        return;
+      }
     };
   
     const handleClose = () => {
